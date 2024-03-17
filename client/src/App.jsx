@@ -8,12 +8,11 @@ import { CurrencyContext } from './Context/CurrencyContext.jsx';
 import axios from 'axios';
 
 function App() {
-  const { from, setFrom, to, setTo, amount, setAmount } =
+  const { from, setFrom, to, setTo, amount, setAmount, result, setResult } =
     useContext(CurrencyContext);
-
-  const [result, setResult] = useState(0);
-  const codeFromCurrency = from.split(' ')[1];
-  const codeToCurrency = to.split(' ')[1];
+  console.log(from);
+  const codeFromCurrency = from.code.split(' ')[0];
+  const codeToCurrency = to.code.split(' ')[0];
   useEffect(() => {
     if (amount) {
       let config = {
